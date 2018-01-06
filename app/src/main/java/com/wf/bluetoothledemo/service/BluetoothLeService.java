@@ -424,7 +424,6 @@ public class BluetoothLeService extends Service {
                 return ret;
             }
         }
-
         return false;
     }
 
