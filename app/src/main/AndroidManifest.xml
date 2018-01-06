@@ -1,14 +1,29 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-
     package="com.wf.bluetoothledemo">
 
-    <application
+    <!-- 为了在app中使用蓝牙功能，必须声明蓝牙权限BLUETOOTH。利用这个权限去执行蓝牙通信，例如请求连接、接受连接、和传输数据。 -->
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <!-- 如果想让你的app启动设备发现或操纵蓝牙设置，必须声明BLUETOOTH_ADMIN权限。注意：如果你使用BLUETOOTH_ADMIN权限，你也必须声明BLUETOOTH权限。 -->
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <!-- 如果想声明你的app只为具有BLE的设备提供 -->
+    <uses-feature android:name="android.hardware.bluetooth_le" android:required="true"/>
+
+    <application android:name=".MainApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".view.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
+        <service android:name=".service.BluetoothLeService"></service>
     </application>
 
 </manifest>
