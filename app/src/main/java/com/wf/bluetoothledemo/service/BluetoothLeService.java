@@ -43,7 +43,6 @@ public class BluetoothLeService extends Service {
     private BluetoothManager mBluetoothManager;
     private BluetoothAdapter mBluetoothAdapter;
     private BluetoothGatt mBluetoothGatt;
-    private String mBluetoothDeviceAddress;
     private int mConnectionState = STATE_DISCONNECTED;
 
     private BluetoothGattService service;
@@ -276,7 +275,6 @@ public class BluetoothLeService extends Service {
             mBluetoothGatt = device.connectGatt(this, false, mGattCallback);
         }
         Log.d(TAG, "Trying to create a new connection.");
-        mBluetoothDeviceAddress = address;
         mConnectionState = STATE_CONNECTING;
         return true;
     }
