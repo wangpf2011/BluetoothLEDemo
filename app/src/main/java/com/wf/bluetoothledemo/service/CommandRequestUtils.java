@@ -48,12 +48,12 @@ public class CommandRequestUtils {
 
     /**
      * 召唤实时数据--a6
-     * @param stakeNo
+     * @param deviceNo
      * @return
      */
-    public static byte[] obtainRealData(String stakeNo) {
-        if(StringUtils.isEmpty(stakeNo)) return null;
-        byte[] data = stakeNo.getBytes();
+    public static byte[] obtainRealData(String deviceNo) {
+        if(StringUtils.isEmpty(deviceNo)) return null;
+        byte[] data = deviceNo.getBytes();
         return packageBytes("a6", data);
     }
 

@@ -14,7 +14,4 @@ public class BluetoothLeConstants {
     public static final String UUIDSTR_ISSC_TRANS_TX = "49535343-1E4D-4BD9-BA61-23C647249616";
     //写数据BluetoothGattCharacteristic的UUID
     public static final String UUIDSTR_ISSC_TRANS_RX = "49535343-8841-43F4-A8D4-ECBE34729BB3";
-
-    //获取监控数据
-    public static final String BLUETOOTH_CHARGE_MONITOR = "com.wf.action.BLUETOOTH_CHARGE_MONITOR";
 }

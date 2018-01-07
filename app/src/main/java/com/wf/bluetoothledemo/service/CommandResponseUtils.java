@@ -32,10 +32,10 @@ public class CommandResponseUtils {
             Log.e("bluetooth==", hexStr);
             String order = CommandRequestUtils.getFrameOrder(packet);
             if("b6".equals(order)) {//获取设备实时监控数据
-                msgSend = new Intent(BluetoothLeConstants.BLUETOOTH_CHARGE_MONITOR);
+                msgSend = new Intent(BluetoothLeService.BLUETOOTH_DEVICE_MONITOR);
                 if(hexStr.length() >= 98) {
                     JSONObject jo = new JSONObject();
-                    //0：空闲，1：充电，2：故障
+                    //0：空闲，1：工作，2：故障
                     String status = hexStr.substring(18, 20);
                     if("00".equals(status)) jo.put("status", "0");
                     else if("01".equals(status)) jo.put("status", "1");

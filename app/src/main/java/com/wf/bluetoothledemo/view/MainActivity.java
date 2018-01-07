@@ -21,6 +21,7 @@ import android.view.Window;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LinearInterpolator;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -46,9 +47,9 @@ public class MainActivity extends BleServiceActivity implements IMainView, View.
     //开启蓝牙功能
     private final int REQUEST_ENABLE_BT_LESCAN = 2;
 
-    private DeviceAdapter mDeviceAdapter;
     //蓝牙扫描相关
     private BluetoothAdapter mBluetoothAdapter;
+    private DeviceAdapter mDeviceAdapter;
     private boolean mScanning = false;
     // stop scan after 10 second
     private final long SCAN_PERIOD = 10000;
@@ -114,7 +115,7 @@ public class MainActivity extends BleServiceActivity implements IMainView, View.
                 mBluetoothAdapter = bluetoothManager.getAdapter();
                 // 检查设备上是否支持蓝牙
                 if (mBluetoothAdapter == null) {
-                    UIHelper.ToastMessage(MainActivity.this, R.string.error_bluetooth_not_supported);
+                    UIHelper.ToastMessage(MainActivity.this, R.string.ble_not_supported1);
                     return;
                 }
             }
@@ -167,6 +168,14 @@ public class MainActivity extends BleServiceActivity implements IMainView, View.
         mDeviceAdapter = new DeviceAdapter(this);
         ListView listView_device = (ListView) findViewById(R.id.list_device);
         listView_device.setAdapter(mDeviceAdapter);
+        listView_device.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                BleDevice bleDevice = mDeviceAdapter.getItem(position);
+                Intent intent = new Intent(MainActivity.this, BleConnectActivity.class);
+                intent.putExtra("device", bleDevice);
+                startActivity(intent);
+            }
+        });
     }
 
     // Device scan callback.
@@ -208,7 +217,7 @@ public class MainActivity extends BleServiceActivity implements IMainView, View.
             case REQUEST_ENABLE_BT_LESCAN:
                 isRequireCheck = false;
                 if(resultCode == Activity.RESULT_CANCELED) {
-                    UIHelper.ToastMessage(MainActivity.this, R.string.error_bluetooth_not_supported);
+                    UIHelper.ToastMessage(MainActivity.this, R.string.ble_not_supported1);
                 }else {
                     imgLoading.startAnimation(operatingAnim);
                     imgLoading.setVisibility(View.VISIBLE);
@@ -242,7 +251,7 @@ public class MainActivity extends BleServiceActivity implements IMainView, View.
                     mBluetoothAdapter = bluetoothManager.getAdapter();
                     // 检查设备上是否支持蓝牙
                     if (mBluetoothAdapter == null) {
-                        UIHelper.ToastMessage(MainActivity.this, R.string.error_bluetooth_not_supported);
+                        UIHelper.ToastMessage(MainActivity.this, R.string.ble_not_supported1);
                         return;
                     }
                 }

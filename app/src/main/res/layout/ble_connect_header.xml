@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="48dp"
+	android:background="@color/main_top"
+	android:gravity="center"
+	android:orientation="horizontal">
+	<ImageView
+		android:layout_width="40dp"
+		android:layout_height="match_parent"
+		android:src="@mipmap/ic_return_left"
+		android:onClick="backBtn"
+		android:scaleType="center" />
+	<TextView
+		android:layout_width="0dip"
+		android:layout_height="match_parent"
+		android:layout_weight="1"
+		android:gravity="center"
+		android:text="BLE蓝牙连接"
+		android:textSize="18sp"
+		android:textColor="#ffffff" />
+	<ImageView
+		android:id="@+id/img_loading"
+		android:layout_width="30dp"
+		android:layout_height="30dp"
+		android:layout_centerVertical="true"
+		android:layout_marginRight="10dp"
+		android:src="@mipmap/ic_loading"
+		android:visibility="invisible" />
+</LinearLayout>

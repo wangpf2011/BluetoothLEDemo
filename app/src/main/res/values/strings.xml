@@ -5,8 +5,11 @@
     <string name="stop_scan">停止扫描</string>
     <string name="please_open_blue">请先打开蓝牙</string>
     <string name="ble_connect_fail">蓝牙连接失败，请重试</string>
-    <string name="error_bluetooth_not_supported">手机不支持蓝牙，无法提供xx服务</string>
+    <string name="ble_not_supported1">手机不支持蓝牙，无法提供xx服务</string>
     <string name="ble_not_supported">手机不支持BLE蓝牙，无法提供xx服务</string>
+
+    <string name="ble_read_realdata">读取实时数据</string>
+    <string name="ble_clear_realdata">清空数据</string>
 
     <string name="connect">连接</string>
     <string name="connected">已连接</string>

@@ -60,6 +60,8 @@ public class BluetoothLeService extends Service {
     public final static String ACTION_GATT_DISCONNECTED = "com.wf.ble.ACTION_GATT_DISCONNECTED";
     public final static String ACTION_GATT_SERVICES_DISCOVERED = "com.wf.ble.ACTION_GATT_SERVICES_DISCOVERED";
     public final static String EXTRA_DATA = "com.wf.ble.EXTRA_DATA";
+    //获取设备实时数据（业务数据，数据交互演示用，依据实际情况，可自行定义）
+    public static final String BLUETOOTH_DEVICE_MONITOR = "com.wf.action.BLUETOOTH_DEVICE_MONITOR";
 
     // Implements callback methods for GATT events that the app cares about. For
     // example,
