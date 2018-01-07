@@ -7,7 +7,6 @@ import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothManager;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -17,7 +16,6 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.view.KeyEvent;
 import android.view.View;
-import android.view.Window;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LinearInterpolator;
@@ -40,7 +38,7 @@ import com.wf.bluetoothledemo.utils.UIHelper;
  *
  * Created by wangpf
  */
-public class MainActivity extends BleServiceActivity implements IMainView, View.OnClickListener {
+public class MainActivity extends BleServiceActivity implements View.OnClickListener {
     private long exitTime = 0;
     //BLE扫描权限
     public final int MY_PERMISSIONS_BTSCAN_DEVICE = 1;
@@ -276,19 +274,5 @@ public class MainActivity extends BleServiceActivity implements IMainView, View.
             return true;
         }
         return super.dispatchKeyEvent(event);
-    }
-
-    /**
-     * 发送消息至Handler
-     * @param type
-     */
-    @Override
-    public void sendHandler(int type, String msg) {
-        mHandler.obtainMessage(type, msg).sendToTarget();
-    }
-
-    @Override
-    public void sendEmptyHandler(int type) {
-        mHandler.sendEmptyMessage(type);
     }
 }

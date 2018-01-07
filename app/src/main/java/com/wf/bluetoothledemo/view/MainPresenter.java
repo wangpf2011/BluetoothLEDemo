@@ -16,11 +16,6 @@ import java.util.List;
  * Created by wangpf
  */
 public class MainPresenter {
-    private IMainView mainView;
-
-    public MainPresenter(IMainView view) {
-        mainView = view;
-    }
 
     // Demonstrates how to iterate through the supported GATT
     // Services/Characteristics.
