@@ -1,0 +1,3 @@
+# BluetoothLEDemo
+origin
+本文依据实际项目经验，介绍了BLE在Android中的应用，包括BLE设备搜索、BLE设备连接以及与BLE设备信息交换。并从工作项目中抽取上述核心代码，编写了一个BLE在Android中应用的完整demo。Demo下载地址请看文章末尾。
